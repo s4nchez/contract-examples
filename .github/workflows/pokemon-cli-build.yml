@@ -25,3 +25,8 @@ jobs:
         distribution: 'temurin'
     - name: Build
       run: ./gradlew pokemon-cli:check
+    - name: Integration Test (vs latest)
+      run: ./gradlew pokemon-cli:integrationTest
+      env:
+        REGISTRY_USERNAME: ${{ github.actor }}
+        REGISTRY_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
