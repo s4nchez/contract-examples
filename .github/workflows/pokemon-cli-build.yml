@@ -4,11 +4,8 @@ on:
   push:
     branches: [ "main" ]
     paths:
-      - pokemon-cli
-  pull_request:
-    branches: [ "main" ]
-    paths:
-      - pokemon-cli
+      - '.github/**'
+      - 'pokemon-cli/**'
 
 permissions:
   contents: read
