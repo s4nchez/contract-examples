@@ -4,10 +4,12 @@ on:
   push:
     branches: [ "main" ]
     paths:
+      - .github
       - pokemon-api
   pull_request:
     branches: [ "main" ]
     paths:
+      - .github
       - pokemon-api
 
 permissions:
