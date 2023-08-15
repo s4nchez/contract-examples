@@ -3,8 +3,12 @@ name: Pokemon API - Build
 on:
   push:
     branches: [ "main" ]
+    paths:
+      - pokemon-api
   pull_request:
     branches: [ "main" ]
+    paths:
+      - pokemon-api
 
 permissions:
   contents: read
