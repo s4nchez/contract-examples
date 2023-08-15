@@ -12,3 +12,4 @@ plugins {
 
 rootProject.name = "contract-examples"
 include("pokemon-cli")
+include("pokemon-api")
