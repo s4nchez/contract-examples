@@ -6,4 +6,5 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter-engine:5.9.2")
     testImplementation("org.http4k:http4k-testing-hamkrest:5.0.0.0")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    testImplementation("com.github.docker-java:docker-java:3.3.2")
 }

@@ -1,10 +1,8 @@
 package org.example
 
-import org.http4k.core.Request
 import com.natpryce.hamkrest.assertion.assertThat
 import com.natpryce.hamkrest.equalTo
-import org.http4k.core.*
-import org.http4k.format.Jackson.auto
+import org.http4k.core.HttpHandler
 import kotlin.test.Test
 
 
