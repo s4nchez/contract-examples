@@ -27,7 +27,7 @@ jobs:
 #      - name: Build
 #        run: ./gradlew pokemon-api:check
       - name: Publish Docker Image
-        run: ./gradlew \
+        run: ./gradlew jib \
           -Djib.to.image=ghcr.io/s4nchez/pokemon-api:latest \
           -Djib.to.auth.username=${{ github.actor }} \
-          -Djib.to.auth.password=${{ secrets.GITHUB_TOKEN }} jib
+          -Djib.to.auth.password=${{ secrets.GITHUB_TOKEN }}
