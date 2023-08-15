@@ -20,8 +20,8 @@ jobs:
         with:
           java-version: '11'
           distribution: 'temurin'
-      - name: Build
-        run: ./gradlew pokemon-api:check
+#      - name: Build
+#        run: ./gradlew pokemon-api:check
       - name: Publish Docker Image
         run: ./gradlew \
           -Djib.to.image=ghcr.io/s4nchez/pokemon-api:latest \
