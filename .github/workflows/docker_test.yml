@@ -1,4 +1,4 @@
-name: Pokemon CLI - Build
+name: Pokemon CLI - Docker Test
 
 on:
   push:
