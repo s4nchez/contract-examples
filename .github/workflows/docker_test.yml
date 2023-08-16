@@ -1,0 +1,25 @@
+name: Pokemon CLI - Build
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - '.github/**'
+      - 'pokemon-cli/**'
+
+permissions:
+  contents: read
+
+jobs:
+  run:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Login to Docker Registry
+        run: docker login "$DOCKER_REGISTRY" -u "$DOCKER_USERNAME" --password-stdin <<< "$DOCKER_PASSWORD"
+        env:
+          DOCKER_USERNAME: ${{ github.actor }}
+          DOCKER_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
+          DOCKER_REGISTRY: ghcr.io/s4nchez/pokemon-api
+
