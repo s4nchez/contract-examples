@@ -22,4 +22,8 @@ jobs:
           DOCKER_USERNAME: ${{ github.actor }}
           DOCKER_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
           DOCKER_REGISTRY: ghcr.io/s4nchez/pokemon-api
+      - name: Start Pokemon API server
+        run:  docker run -p 8080:8080 -d ghcr.io/s4nchez/pokemon-api:latest
+      - name: Make a request
+        run: sleep 5 && curl -v http://localhost:8080
 
