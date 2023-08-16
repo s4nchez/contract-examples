@@ -35,5 +35,11 @@ jobs:
         if: success() || failure()
         with:
           name: jUnit Tests
-          path: 'pokermon-cli/build/test-results/*.xml'
+          path: 'pokemon-cli/build/test-results/*.xml'
           reporter: java-junit
+      - name: Login to Docker Registry
+        run: docker login "$DOCKER_REGISTRY" -u "$DOCKER_USERNAME" --password-stdin <<< "$DOCKER_PASSWORD"
+        env:
+          DOCKER_USERNAME: ${{ github.actor }}
+          DOCKER_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
+          DOCKER_REGISTRY: ghcr.io/s4nchez/pokemon-api
