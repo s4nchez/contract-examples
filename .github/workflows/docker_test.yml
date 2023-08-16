@@ -17,13 +17,13 @@ jobs:
 
     steps:
       - name: Login to Docker Registry
-        run: docker login "$DOCKER_REGISTRY" -u "$DOCKER_USERNAME" --password-stdin <<< "$DOCKER_PASSWORD"
+        run: |
+          docker login "$DOCKER_REGISTRY" -u "$DOCKER_USERNAME" --password-stdin <<< "$DOCKER_PASSWORD" \
+          && docker pull ghcr.io/s4nchez/pokemon-api:latest
         env:
           DOCKER_USERNAME: ${{ github.actor }}
           DOCKER_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
           DOCKER_REGISTRY: ghcr.io/s4nchez/pokemon-api
-      - name: Pull docker image
-        run: docker pull ghcr.io/s4nchez/pokemon-api:latest
       - name: Start Pokemon API server
         run:  docker run -p 8080:8080 -d ghcr.io/s4nchez/pokemon-api:latest
       - name: Make a request
