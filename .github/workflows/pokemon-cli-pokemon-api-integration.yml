@@ -22,7 +22,7 @@ jobs:
       - name: Integration Tests (vs ${{ github.event.client_payload.docker_label }})
         run: ./gradlew pokemon-cli:integrationTest
         env:
-          IMAGE_TAG:  ${{ github.event.client_payload.docker_label }}
+          IMAGE_TAG: ${{ github.event.client_payload.docker_label }}
           REGISTRY_USERNAME: ${{ github.actor }}
           REGISTRY_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
       - name: Publish Test Report
