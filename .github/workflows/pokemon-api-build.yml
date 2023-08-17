@@ -4,7 +4,9 @@ on:
   push:
     branches: [ "main" ]
     paths:
-      - '.github/**'
+      - '.github/workflows/pokemon-api-build.yml'
+      - 'build.gradle.kts'
+      - 'settings.gradle.kts'
       - 'pokemon-api/**'
 
 permissions:
