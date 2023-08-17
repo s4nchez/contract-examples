@@ -35,5 +35,6 @@ jobs:
         with:
           name: jUnit Tests
           path: '**/build/test-results/integrationTest/*.xml'
+          only-summary: true
           reporter: java-junit
 
