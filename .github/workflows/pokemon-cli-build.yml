@@ -37,4 +37,5 @@ jobs:
         with:
           check_name: Integration Test (vs latest)
           report_paths: '**/build/test-results/integrationTest/*.xml'
+          detailed_summary: summary
 
