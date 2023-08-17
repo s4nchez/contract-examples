@@ -41,6 +41,6 @@ jobs:
         if: success() || failure()
         with:
           name: jUnit Tests
-          path: 'pokemon-cli/build/test-results/test/*.xml'
+          path: '**/build/test-results/integrationTest/*.xml'
           reporter: java-junit
 
