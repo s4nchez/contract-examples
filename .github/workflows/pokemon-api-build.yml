@@ -26,8 +26,6 @@ jobs:
         with:
           java-version: '11'
           distribution: 'temurin'
-#      - name: Build
-#        run: ./gradlew pokemon-api:check
       - name: Publish Docker Image
         run: |
           ./gradlew jib \
@@ -36,3 +34,8 @@ jobs:
           -Djib.to.auth.username=${{ github.actor }} \
           -Djib.to.auth.password=${{ secrets.GITHUB_TOKEN }}
         shell: bash
+      - name: Broadcast new version available
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          event-type: new-version-pokemon-api
+          client-payload: '{ "docker_label": ${{ github.sha }}}'
