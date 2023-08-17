@@ -33,7 +33,7 @@ class DockerManager {
             .exec(PullImageResultCallback())
             .awaitCompletion(30, TimeUnit.SECONDS);
 
-        containerId = dockerClient.createContainerCmd("ghcr.io/s4nchez/pokemon-api:latest")
+        containerId = dockerClient.createContainerCmd("ghcr.io/s4nchez/pokemon-api:${imageTag}")
             .withExposedPorts(ExposedPort.tcp(8080))
             .withPortSpecs("8080/tcp")
             .withHostConfig(
