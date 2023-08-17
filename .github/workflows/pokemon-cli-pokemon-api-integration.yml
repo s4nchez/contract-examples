@@ -19,7 +19,7 @@ jobs:
         with:
           java-version: '11'
           distribution: 'temurin'
-      - name: Integration Tests (vs latest)
+      - name: Integration Tests (vs ${{ github.event.client_payload.docker_label }})
         run: ./gradlew pokemon-cli:integrationTest
         env:
           IMAGE_TAG:  ${{ github.event.client_payload.docker_label }}
