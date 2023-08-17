@@ -33,7 +33,7 @@ jobs:
         uses: dorny/test-reporter@v1
         if: success() || failure()
         with:
-          name: jUnit Tests
+          name: Integration Test (vs latest pokemon-api)
           path: '**/build/test-results/integrationTest/*.xml'
           only-summary: true
           reporter: java-junit
