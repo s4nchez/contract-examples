@@ -15,6 +15,7 @@ import java.util.concurrent.TimeUnit
 class DockerManager {
     private val registryUsername = System.getenv()["REGISTRY_USERNAME"] ?: error("REGISTRY_USERNAME missing")
     private val registryPassword = System.getenv()["REGISTRY_PASSWORD"] ?: error("REGISTRY_PASSWORD missing")
+    private val imageTag = System.getenv()["IMAGE_TAG"] ?: "latest"
 
     private val config = DefaultDockerClientConfig.createDefaultConfigBuilder()
         .withRegistryUsername(registryUsername)
@@ -25,8 +26,10 @@ class DockerManager {
     private var containerId: String? = null
 
     fun startServer() {
+        println("Pulling image (tag: ${imageTag})")
+
         dockerClient.pullImageCmd("ghcr.io/s4nchez/pokemon-api")
-            .withTag("latest")
+            .withTag(imageTag)
             .exec(PullImageResultCallback())
             .awaitCompletion(30, TimeUnit.SECONDS);
 
