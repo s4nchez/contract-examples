@@ -9,7 +9,7 @@ import org.http4k.format.Jackson.auto
 
 fun PokemonServer() = { _: Request ->
     val data = Body.auto<PokemonDetails>().toLens()
-    Response(OK).with(data of PokemonDetails("pikachu", 4))
+    Response(OK).with(data of PokemonDetails("pikachu", 3))
 }
 
 data class PokemonDetails(val name: String, val height: Int)
