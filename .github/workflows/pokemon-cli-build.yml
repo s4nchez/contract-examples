@@ -22,19 +22,16 @@ jobs:
         with:
           java-version: '11'
           distribution: 'temurin'
-#      - name: Build
-#        run: ./gradlew pokemon-cli:check
+      #      - name: Build
+      #        run: ./gradlew pokemon-cli:check
       - name: Integration Test (vs latest)
         run: ./gradlew pokemon-cli:integrationTest
         env:
           REGISTRY_USERNAME: ${{ github.actor }}
           REGISTRY_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
-      - name: Test Report
-        uses: dorny/test-reporter@v1
+      - name: Publish Test Report
+        uses: mikepenz/action-junit-report@v3
         if: success() || failure()
         with:
-          name: Integration Test (vs latest pokemon-api)
-          path: '**/build/test-results/integrationTest/*.xml'
-          only-summary: true
-          reporter: java-junit
+          report_paths: '**/build/test-results/integrationTest/*.xml'
 
