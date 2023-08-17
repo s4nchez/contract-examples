@@ -38,4 +38,4 @@ jobs:
         uses: peter-evans/repository-dispatch@v2
         with:
           event-type: new-version-pokemon-api
-          client-payload: '{ "docker_label": ${{ github.sha }}}'
+          client-payload: '{ "docker_label": "${{ github.sha }}" }'
