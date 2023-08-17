@@ -32,6 +32,7 @@ jobs:
         run: |
           ./gradlew jib \
           -Djib.to.image=ghcr.io/s4nchez/pokemon-api:latest \
+          -Djib.to.tags=$({ github.sha }) \
           -Djib.to.auth.username=${{ github.actor }} \
           -Djib.to.auth.password=${{ secrets.GITHUB_TOKEN }}
         shell: bash
