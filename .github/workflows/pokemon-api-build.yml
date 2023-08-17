@@ -10,7 +10,7 @@ on:
       - 'pokemon-api/**'
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   build:
